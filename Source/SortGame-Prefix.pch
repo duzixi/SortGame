@@ -1,0 +1,35 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+///  通用头文件导入
+#import <AVFoundation/AVFoundation.h>
+#import "WebColor.h"
+
+///  通用宏定义
+#define OX 80
+#define OY 50
+#define WIDTH 30
+#define MARGIN 10
+
+/* Values for SortType */
+typedef NS_ENUM(NSInteger, SortType) {
+    SortTypeFree        = 0,  // 自由排序
+    SortTypeBubble      = 1,  // 冒泡排序
+    SortTypeSelection   = 2,  // 选择排序
+    SortTypeInsert      = 3  // 插入排序
+    
+};
