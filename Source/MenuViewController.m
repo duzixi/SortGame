@@ -2,8 +2,8 @@
 //  MenuViewController.m
 //  SortGame
 //
-//  Created by 杜子兮(duzix) on 14-8-5.
-//  Copyright (c) 2014年 lanou. All rights reserved.
+//  Created by 杜子兮(duzixi) on 14-8-16.
+//  Copyright (c) 2014年 lanou3g.com 蓝鸥科技 All rights reserved.
 //
 
 #import "MenuViewController.h"
@@ -29,14 +29,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [WebColor darkSlateBlue];
+    UIImageView * imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(0, 320 - 70, 70, 70)];
+    imgViewLogo.image = [UIImage imageNamed:@"SortGame.png"];
+    [self.view addSubview:imgViewLogo];
+    
     NSArray *arrTitle = @[@"冒泡排序      Bubble Sort",
                           @"选择排序   Selection Sort",
                           @"插入排序   Insertion Sort",
                           @"自由排序        Free Sort"];
-    for (int i = 0; i < [arrTitle count]; i++) {
+    for (int i = 0; i < [arrTitle count] - 2; i++) {
         UIButton * btBubbleSort = [UIButton buttonWithType:UIButtonTypeCustom];
         btBubbleSort.tag = 100 + i;
-        btBubbleSort.frame = CGRectMake(40, 50 + (40 + 10) * i, 300, 40);
+        btBubbleSort.frame = CGRectMake(130, 100 + (40 + 30) * i, 300, 40);
         [btBubbleSort.layer setMasksToBounds:YES];
         [btBubbleSort.layer setCornerRadius:20];
         [btBubbleSort setTitle:arrTitle[i] forState:UIControlStateNormal] ;
