@@ -2,8 +2,8 @@
 //  View.m
 //  SortGame
 //
-//  Created by 杜子兮(duzix) on 14-8-16.
-//  Copyright (c) 2014年 lanou3g.com All rights reserved.
+//  Created by 杜子兮(duzixi) on 14-8-16.
+//  Copyright (c) 2014年 lanou3g.com 蓝鸥科技 All rights reserved.
 //
 
 #import "View.h"
@@ -105,6 +105,40 @@
     label.tag = 3002;
     label.text = @"❌出错次数：0次";
     [vc.view addSubview:label];
+}
+
+///  交换两个柱子
++ (void) swapColumnsOn:(UIViewController *)vc atIndex:(NSInteger)i and:(NSInteger)j
+{
+    UIView *viewJ = [vc.view viewWithTag:(i + 1000)];
+    UIView *viewJ2 = [vc.view viewWithTag:(j + 1000)];
+    UILabel *labelJ = (UILabel *)[vc.view viewWithTag:(i + 2000)];
+    UILabel *labelJ2 = (UILabel *)[vc.view viewWithTag:(j + 2000)];
+    
+    CGFloat tempHeight = viewJ.frame.size.height;
+    CGFloat tempY = viewJ.frame.origin.y;
+    viewJ.frame = CGRectMake(viewJ.frame.origin.x,
+                             viewJ2.frame.origin.y,
+                             viewJ.frame.size.width,
+                             viewJ2.frame.size.height);
+    viewJ2.frame = CGRectMake(viewJ2.frame.origin.x,
+                              tempY,
+                              viewJ2.frame.size.width,
+                              tempHeight);
+    tempHeight = labelJ.frame.size.height;
+    tempY = labelJ.frame.origin.y;
+    labelJ.frame = CGRectMake(labelJ.frame.origin.x,
+                              labelJ2.frame.origin.y,
+                              labelJ.frame.size.width,
+                              labelJ2.frame.size.height);
+    labelJ2.frame = CGRectMake(labelJ2.frame.origin.x,
+                               tempY,
+                               labelJ2.frame.size.width,
+                               tempHeight);
+    NSString * tempTitle = [labelJ text];
+    labelJ.text = labelJ2.text;
+    labelJ2.text = tempTitle;
+
 }
 
 
